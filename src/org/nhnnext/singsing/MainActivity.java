@@ -18,28 +18,26 @@ public class MainActivity extends Activity implements OnClickListener {
 	private ImageButton imgbtn;
 	private TextView txtview;
 	private int clickCont = 0;
-	
+
 	private ImageView imageView1;
 	private boolean changeimg = true;
 	private String imgPath = "";
-	
+
 	private Button btn2;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		btn = (Button) findViewById(R.id.button1);
 		btn.setOnClickListener(this);
-		
+
 		imgbtn = (ImageButton) findViewById(R.id.imageButton1);
 		imgbtn.setOnClickListener(this);
 
-		txtview = (TextView) findViewById(R.id.textView1);	
+		txtview = (TextView) findViewById(R.id.textView1);
 
-		
-		
 	}
 
 	@Override
@@ -51,20 +49,27 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		switch (v.getId()) {
-		case R.id.button1:
-			Toast.makeText(MainActivity.this, txtview.getText().toString() + "",Toast.LENGTH_SHORT).show();
-			Log.i("message01" , txtview.getText().toString() + "" );
-			break;
-		case R.id.imageButton1:
-			++clickCont;
-			txtview.setText(clickCont + "press");
-			Toast.makeText(MainActivity.this, "PRESS THE IMGBTN",Toast.LENGTH_SHORT).show();
-			Log.i("message02" , "PRESS THE IMGBTN" );
-			break;
-	
-		}		
+		try {
+			btn.setBackgroundResource(1231234);
+			switch (v.getId()) {
+			case R.id.button1:
+				Toast.makeText(MainActivity.this,
+						txtview.getText().toString() + "", Toast.LENGTH_SHORT)
+						.show();
+				Log.i("message01", txtview.getText().toString() + "");
+				break;
+			case R.id.imageButton1:
+				++clickCont;
+				txtview.setText(clickCont + "press");
+				Toast.makeText(MainActivity.this, "PRESS THE IMGBTN",
+						Toast.LENGTH_SHORT).show();
+				Log.i("message02", "PRESS THE IMGBTN");
+				break;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			Log.i("try-error", "errorrrr");
+		}
 	}
 
 }
